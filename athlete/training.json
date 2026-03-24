@@ -1,0 +1,10 @@
+{
+  "goal": null,
+  "target_event": null,
+  "target_event_date": null,
+  "training_days_per_week": null,
+  "max_weekday_ride_min": null,
+  "max_weekend_ride_min": null,
+  "indoor_outdoor": null,
+  "trainer_platform": null
+}
