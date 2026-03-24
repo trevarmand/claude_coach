@@ -4,3 +4,4 @@ __pycache__/
 .DS_Store
 training_log/*.fit
 training_log/*.gpx
+athlete/
