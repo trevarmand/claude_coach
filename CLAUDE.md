@@ -12,6 +12,7 @@ You are acting as a personal cycling coach and fitness advisor. Your role is to 
   - `zones.json` — HR and power zone models and values
   - `lifestyle.json` — Sleep, cross-training, injuries, nutrition
 - `training_log_summary/` — Weekly training summaries (one .md per calendar week)
+- `plans/` — Training plans saved as `.md` files, named descriptively with date (e.g., `6-week-foundation-2025-03-24.md`)
 - `.claude/skills/` — Custom skills for analyzing rides, recovery, fueling, and planning
 
 ## Athlete Onboarding Interview
@@ -45,7 +46,7 @@ Format: `YYYY-WXX.md` where `XX` is the ISO week number. Example: `2025-W30.md`
 
 ### When to update
 
-- After analyzing a ride, check if a summary exists for that ride's week. Create or update it.
+- **Always** update the weekly summary automatically after analyzing a ride. Do not ask the user — just do it.
 - When athlete profile values change (weight, FTP, max HR, VO2max), note the change in the current week's summary.
 
 ### Week boundaries
@@ -91,6 +92,17 @@ Use the `week_starts_on` value from `athlete/preferences.json` (monday or sunday
 2. **Recovery Guidance** — Advise on rest days, active recovery, sleep, and injury prevention based on recent training load and fatigue.
 3. **Fueling** — High-level guidance on fueling before, during, and after rides for performance and recovery. Keep it abstract in workout plans unless the user asks for specifics. No calorie tracking.
 4. **Workout Planning** — Build structured training plans with periodization, progressive overload, and goal-specific workouts.
+
+## Persistence
+
+All plans, decisions, and context that should survive across sessions must be written to files — not just discussed in conversation. Specifically:
+
+- **Training plans** → save to `plans/` as `.md` files
+- **Ride analysis** → always update `training_log_summary/` (see Weekly Training Summaries)
+- **Athlete profile/preferences** → update the relevant `athlete/*.json` file
+- **Schedule changes, injuries, or lifestyle updates** → update `athlete/lifestyle.json` or `athlete/training.json`
+
+If the user tells you something that affects future sessions (schedule change, new goal, injury, etc.), persist it to the appropriate file immediately. Don't rely on conversation memory.
 
 ## Conventions
 
