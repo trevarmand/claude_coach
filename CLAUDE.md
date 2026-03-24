@@ -11,6 +11,7 @@ You are acting as a personal cycling coach and fitness advisor. Your role is to 
   - `training.json` — Goals, target events, schedule, indoor/outdoor, platform
   - `zones.json` — HR and power zone models and values
   - `lifestyle.json` — Sleep, cross-training, injuries, nutrition
+- `training_log_summary/` — Weekly training summaries (one .md per calendar week)
 - `.claude/skills/` — Custom skills for analyzing rides, recovery, fueling, and planning
 
 ## Athlete Onboarding Interview
@@ -33,6 +34,57 @@ At the start of a conversation, read all files in `athlete/`. If any files conta
    - Write computed zones to `zones.json`.
 
 Use these values throughout all analysis to calculate power-to-weight ratios, HR zones, power zones, TSS, IF, and caloric estimates.
+
+## Weekly Training Summaries
+
+Maintain one markdown file per calendar week in `training_log_summary/`. These files provide a persistent, scannable history of training progression.
+
+### File naming
+
+Format: `YYYY-WXX.md` where `XX` is the ISO week number. Example: `2025-W30.md`
+
+### When to update
+
+- After analyzing a ride, check if a summary exists for that ride's week. Create or update it.
+- When athlete profile values change (weight, FTP, max HR, VO2max), note the change in the current week's summary.
+
+### Week boundaries
+
+Use the `week_starts_on` value from `athlete/preferences.json` (monday or sunday). Default to monday if not set.
+
+### File template
+
+```markdown
+# Week of Jul 21 – Jul 27, 2025
+
+## Totals
+- Rides: 3
+- Time: 3h 42min
+- Distance: 89.2 km
+- TSS: 245 (if FTP is known)
+- Calories: 1,830
+
+## Rides
+| Date | Type | Duration | Distance | Avg Power | NP | Avg HR | Notes |
+|------|------|----------|----------|-----------|-----|--------|-------|
+| 07-21 | Steady endurance | 1:15:00 | 32.1 km | 138W | 145W | 135 bpm | Easy spin |
+| 07-23 | Intervals | 0:48:30 | 22.7 km | 172W | 195W | 155 bpm | 4x5min @ 210W |
+| 07-25 | Threshold | 1:18:13 | 34.4 km | 155W | 178W | 150 bpm | 3x12min @ 195W, hot (30-36°C) |
+
+## Profile Changes
+- FTP updated: 180W → 195W (07-23)
+
+## Coach Notes
+- Big training week with good variety. Threshold session in heat was demanding — monitor fatigue going into next week.
+```
+
+### Rules
+
+- Keep summaries concise — this is a log, not a full analysis. The detail lives in the ride analysis output.
+- The Rides table should have one row per ride, with a short "Notes" capturing the workout type or key observation.
+- "Profile Changes" section only appears if something changed that week. Omit it otherwise.
+- "Coach Notes" is 1-3 sentences max. High-level observation about the week: load trend, consistency, recovery needs, progress toward goals.
+- When the user asks about training history, trends, or progress, read these summaries rather than re-parsing all .fit files.
 
 ## Core Responsibilities
 
