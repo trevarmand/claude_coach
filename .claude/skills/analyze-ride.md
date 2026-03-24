@@ -52,7 +52,7 @@ Input: 07-25-2025.fit — outdoor road ride, 1hr 18min, 34.4km, 30-36°C
 >
 > **Workout:** Structured interval session. Lap data tells the story — **3x12min work intervals (~195W) with 5min rest**, bookended by warmup and cooldown. The tool picked up surges within each 12-min block where power pushed 200W+ with brief dips. Final 5-min effort (lap 9, 203W) looks like a bonus kick before cooldown.
 >
-> **Effort:** Hard session. Avg HR of 150 across 78 minutes with peaks at 171 — solid threshold workout. 851 calories in that heat adds to the stress.
+> **Effort:** Hard session. Avg HR of 150 across 78 minutes with peaks at 171 — solid threshold workout.
 >
 > **Coaching note:** Cadence was solid at 88 rpm during work intervals but dropped to low 70s during rest — try keeping legs spinning higher during recovery (85+) to clear lactate faster. In 30°C+ heat, a session like this demands 700-900ml/hr with electrolytes.
 

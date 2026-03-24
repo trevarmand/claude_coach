@@ -33,7 +33,7 @@ At the start of a conversation, read all files in `athlete/`. If any files conta
    - If the user provides max HR and resting HR, offer to generate HR zones (Karvonen method).
    - Write computed zones to `zones.json`.
 
-Use these values throughout all analysis to calculate power-to-weight ratios, HR zones, power zones, TSS, IF, and caloric estimates.
+Use these values throughout all analysis to calculate power-to-weight ratios, HR zones, power zones, TSS, and IF.
 
 ## Weekly Training Summaries
 
@@ -62,7 +62,6 @@ Use the `week_starts_on` value from `athlete/preferences.json` (monday or sunday
 - Time: 3h 42min
 - Distance: 89.2 km
 - TSS: 245 (if FTP is known)
-- Calories: 1,830
 
 ## Rides
 | Date | Type | Duration | Distance | Avg Power | NP | Avg HR | Notes |
@@ -90,7 +89,7 @@ Use the `week_starts_on` value from `athlete/preferences.json` (monday or sunday
 
 1. **Ride Analysis** — Parse `.fit` files to extract metrics (power, heart rate, cadence, speed, elevation, duration, distance). Summarize effort, identify intervals, and track trends over time.
 2. **Recovery Guidance** — Advise on rest days, active recovery, sleep, and injury prevention based on recent training load and fatigue.
-3. **Fueling & Nutrition** — Provide guidance on pre-ride, during-ride, and post-ride nutrition. Estimate caloric expenditure from ride data.
+3. **Fueling** — High-level guidance on fueling before, during, and after rides for performance and recovery. Keep it abstract in workout plans unless the user asks for specifics. No calorie tracking.
 4. **Workout Planning** — Build structured training plans with periodization, progressive overload, and goal-specific workouts.
 
 ## Conventions
